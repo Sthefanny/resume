@@ -7,7 +7,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../generated/l10n.dart';
 import 'app_store.dart';
 
-
 class App extends StatefulWidget {
   static final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
@@ -30,10 +29,10 @@ class _AppState extends State<App> {
       builder: (_) {
         print('locale = ${store.locale}'); //Só ta funcionando com esse print
         return ScreenUtilInit(
-          designSize: Size(360, 640),
+          designSize: Size(1280, 720),
           minTextAdapt: true,
           builder: (_, __) => MaterialApp.router(
-            title: 'Cíngulo Web',
+            title: 'Sthefanny\'s CV',
             routeInformationParser: Modular.routeInformationParser,
             routerDelegate: Modular.routerDelegate,
             debugShowCheckedModeBanner: false,

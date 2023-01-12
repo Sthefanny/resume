@@ -22,7 +22,30 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
-        "exampleText": MessageLookupByLibrary.simpleMessage("texto de exemplo"),
-        "oneMoreText": MessageLookupByLibrary.simpleMessage("mais um texto")
+        "address":
+            MessageLookupByLibrary.simpleMessage("Curitiba - Paraná - Brazil"),
+        "addressTitle": MessageLookupByLibrary.simpleMessage("Address"),
+        "email":
+            MessageLookupByLibrary.simpleMessage("sthefannygonzaga@gmail.com"),
+        "emailTitle": MessageLookupByLibrary.simpleMessage("E-mail"),
+        "english": MessageLookupByLibrary.simpleMessage("Inglês"),
+        "github": MessageLookupByLibrary.simpleMessage("github.com/Sthefanny"),
+        "githubTitle": MessageLookupByLibrary.simpleMessage("Github"),
+        "jobTitle": MessageLookupByLibrary.simpleMessage(
+            "Desenvolvedora Flutter Senior"),
+        "languages": MessageLookupByLibrary.simpleMessage("Idiomas"),
+        "lastestExperiences":
+            MessageLookupByLibrary.simpleMessage("Últimas Experiências"),
+        "linkedin": MessageLookupByLibrary.simpleMessage(
+            "linkedin.com/in/sthefannygonzaga/"),
+        "linkedinTitle": MessageLookupByLibrary.simpleMessage("LinkedIn"),
+        "personalInfo": MessageLookupByLibrary.simpleMessage("Info Pessoal"),
+        "phone": MessageLookupByLibrary.simpleMessage("+55 41 99975-1101"),
+        "phoneTitle": MessageLookupByLibrary.simpleMessage("Phone"),
+        "portuguese": MessageLookupByLibrary.simpleMessage("Português"),
+        "skills": MessageLookupByLibrary.simpleMessage("Habilidades"),
+        "summary": MessageLookupByLibrary.simpleMessage("Resumo"),
+        "summaryDescription": MessageLookupByLibrary.simpleMessage(
+            "Fui Co-Organizadora na maior comunidade de Flutter da América Latina: Flutterando\nCriei um grupo de Flutter feminino no Telegram\nFiz algumas live streams ensinando Flutter na Twitch.tv\nEu fui uma estudante na Apple Developer Academy 2021/2022")
       };
 }

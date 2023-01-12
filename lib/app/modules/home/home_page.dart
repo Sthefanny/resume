@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
-import '../../../generated/l10n.dart';
 import '../../app_store.dart';
-import '../../common/enums/language_enum.dart';
+import '../../common/configs/color_config.dart';
 import 'home_store.dart';
+import 'widgets/resume_wiget.dart';
 
 class HomePage extends StatefulWidget {
   final String title;
@@ -28,28 +28,13 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Observer(builder: (_) {
-      return Scaffold(
-        appBar: AppBar(
-          title: Text('Counter'),
-        ),
-        body: Column(
-          children: [
-            Text('${store.counter} == ${S.of(context).exampleText}, ${S.of(context).oneMoreText}'),
-            Text('Lingua = ${appstore.locale}'),
-          ],
-        ),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            if (appstore.locale == Locale('en')) {
-              appstore.setLocale(LanguageEnum.portuguese);
-            } else {
-              appstore.setLocale(LanguageEnum.english);
-            }
-          },
-          child: Icon(Icons.add),
-        ),
-      );
-    });
+    return Observer(
+      builder: (_) {
+        return Scaffold(
+          backgroundColor: ColorConfig.background,
+          body: ResumeWidget(),
+        );
+      },
+    );
   }
 }

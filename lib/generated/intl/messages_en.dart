@@ -22,7 +22,31 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
-        "exampleText": MessageLookupByLibrary.simpleMessage("example text"),
-        "oneMoreText": MessageLookupByLibrary.simpleMessage("one more text")
+        "address":
+            MessageLookupByLibrary.simpleMessage("Curitiba - Paraná - Brazil"),
+        "addressTitle": MessageLookupByLibrary.simpleMessage("Address"),
+        "email":
+            MessageLookupByLibrary.simpleMessage("sthefannygonzaga@gmail.com"),
+        "emailTitle": MessageLookupByLibrary.simpleMessage("E-mail"),
+        "english": MessageLookupByLibrary.simpleMessage("English"),
+        "github": MessageLookupByLibrary.simpleMessage("github.com/Sthefanny"),
+        "githubTitle": MessageLookupByLibrary.simpleMessage("Github"),
+        "jobTitle":
+            MessageLookupByLibrary.simpleMessage("Senior Flutter Developer"),
+        "languages": MessageLookupByLibrary.simpleMessage("Languages"),
+        "lastestExperiences":
+            MessageLookupByLibrary.simpleMessage("Latest Experiences"),
+        "linkedin": MessageLookupByLibrary.simpleMessage(
+            "linkedin.com/in/sthefannygonzaga/"),
+        "linkedinTitle": MessageLookupByLibrary.simpleMessage("LinkedIn"),
+        "personalInfo": MessageLookupByLibrary.simpleMessage("Personal Info"),
+        "phone": MessageLookupByLibrary.simpleMessage("+55 41 99975-1101"),
+        "phoneTitle": MessageLookupByLibrary.simpleMessage("Phone"),
+        "portuguese":
+            MessageLookupByLibrary.simpleMessage("Brazilian Portuguese"),
+        "skills": MessageLookupByLibrary.simpleMessage("Skills"),
+        "summary": MessageLookupByLibrary.simpleMessage("Summary"),
+        "summaryDescription": MessageLookupByLibrary.simpleMessage(
+            "I was Co-Organizer in the biggest Flutter Community in Latin America: Flutterando\nI started a female Flutter group in Telegram\nI did some live streams teaching Flutter at Twitch.tv\nI was a student at Apple Developer Academy 2021/2022")
       };
 }
