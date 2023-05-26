@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-import '../../../../generated/l10n.dart';
+import '../../../../l10n/generated/l10n.dart';
 import '../../../common/configs/color_config.dart';
 import '../../../common/configs/text_style_config.dart';
 
@@ -27,8 +27,8 @@ class TitleWidget extends StatelessWidget {
 
   Widget _buildIcon() {
     return Padding(
-      padding: EdgeInsets.only(right: 8.sp),
-      child: FaIcon(FontAwesomeIcons.earthAmericas, color: ColorConfig.background, size: 100.sp),
+      padding: EdgeInsets.only(right: 8.w),
+      child: FaIcon(FontAwesomeIcons.earthAmericas, color: ColorConfig.background, size: 50.w),
     );
   }
 

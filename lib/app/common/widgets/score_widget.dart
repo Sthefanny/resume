@@ -10,7 +10,7 @@ class ScoreWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return _buildScore();
+    return Container(child: _buildScore());
   }
 
   Widget _buildScore() {
@@ -22,6 +22,7 @@ class ScoreWidget extends StatelessWidget {
 
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      mainAxisSize: MainAxisSize.min,
       children: [
         ...list,
       ],
@@ -30,9 +31,9 @@ class ScoreWidget extends StatelessWidget {
 
   Widget _buildCircle({bool isFilled = false}) {
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: 2.sp),
-      width: 15.sp,
-      height: 15.sp,
+      margin: EdgeInsets.symmetric(horizontal: 0.5.w),
+      width: 8.w,
+      height: 8.h,
       decoration: BoxDecoration(
         color: isFilled ? ColorConfig.background : ColorConfig.grey,
         shape: BoxShape.circle,

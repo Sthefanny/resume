@@ -12,8 +12,16 @@ abstract class AppStoreBase with Store {
   @observable
   Locale? locale = Locale('pt');
 
+  @observable
+  LanguageEnum language = LanguageEnum.portuguese;
+
+  @action
+  void setLanguage(LanguageEnum value) => language = value;
+
   @action
   void setLocale(LanguageEnum value) {
+    setLanguage(value);
+
     switch (value) {
       case LanguageEnum.portuguese:
         locale = Locale('pt');

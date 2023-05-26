@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-import '../../../../generated/l10n.dart';
+import '../../../../l10n/generated/l10n.dart';
 import '../../../common/configs/color_config.dart';
 import '../../../common/configs/text_style_config.dart';
 
@@ -15,7 +15,7 @@ class PersonalInfoWidget extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
-          padding: EdgeInsets.only(top: 20.sp),
+          padding: EdgeInsets.only(top: 5.h),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
@@ -31,8 +31,8 @@ class PersonalInfoWidget extends StatelessWidget {
 
   Widget _buildIcon() {
     return Padding(
-      padding: EdgeInsets.only(right: 8.sp),
-      child: FaIcon(FontAwesomeIcons.solidUser, color: ColorConfig.background, size: 28.sp),
+      padding: EdgeInsets.only(right: 4.w),
+      child: FaIcon(FontAwesomeIcons.solidUser, color: ColorConfig.background, size: 16.w),
     );
   }
 
@@ -44,26 +44,29 @@ class PersonalInfoWidget extends StatelessWidget {
   }
 
   Widget _buildInfos(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        _buildInfo(title: S.of(context).addressTitle, value: S.of(context).address),
-        _buildInfo(title: S.of(context).phoneTitle, value: S.of(context).phone),
-        _buildInfo(title: S.of(context).emailTitle, value: S.of(context).email),
-        _buildInfo(title: S.of(context).linkedinTitle, value: S.of(context).linkedin),
-        _buildInfo(title: S.of(context).githubTitle, value: S.of(context).github),
-      ],
+    return Padding(
+      padding: EdgeInsets.only(top: 8.h),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          _buildInfo(title: S.of(context).addressTitle, value: S.of(context).address),
+          _buildInfo(title: S.of(context).phoneTitle, value: S.of(context).phone),
+          _buildInfo(title: S.of(context).emailTitle, value: S.of(context).email),
+          _buildInfo(title: S.of(context).linkedinTitle, value: S.of(context).linkedin),
+          _buildInfo(title: S.of(context).githubTitle, value: S.of(context).github),
+        ],
+      ),
     );
   }
 
   Widget _buildInfo({required String title, required String value}) {
     return Padding(
-      padding: EdgeInsets.symmetric(vertical: 10.sp),
+      padding: EdgeInsets.symmetric(vertical: 5.h),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Padding(
-            padding: EdgeInsets.only(bottom: 10.sp),
+            padding: EdgeInsets.only(bottom: 5.h),
             child: Text(title, style: TextStyleConfig.infoTitle),
           ),
           Text(value, style: TextStyleConfig.infoBody),

@@ -9,20 +9,20 @@ import '../../../common/configs/color_config.dart';
 import '../../../common/configs/text_style_config.dart';
 import '../home_store.dart';
 
-class LastestExperiences extends StatefulWidget {
-  const LastestExperiences({super.key});
+class EducationWidget extends StatefulWidget {
+  const EducationWidget({super.key});
 
   @override
-  State<LastestExperiences> createState() => _LastestExperiencesState();
+  State<EducationWidget> createState() => _EducationWidgetState();
 }
 
-class _LastestExperiencesState extends State<LastestExperiences> {
+class _EducationWidgetState extends State<EducationWidget> {
   late final HomeStore _store;
 
   @override
   void initState() {
     super.initState();
-    _store = Modular.get<HomeStore>()..loadExperiences();
+    _store = Modular.get<HomeStore>()..loadEducations();
   }
 
   @override
@@ -35,7 +35,7 @@ class _LastestExperiencesState extends State<LastestExperiences> {
           children: [
             _buildIconAndTitle(context),
             Container(
-              margin: EdgeInsets.only(top: 15.h, bottom: 20.h),
+              margin: EdgeInsets.only(top: 15.h),
               child: _buildExperiences(context),
             ),
           ],
@@ -71,13 +71,13 @@ class _LastestExperiencesState extends State<LastestExperiences> {
   Widget _buildIcon() {
     return Padding(
       padding: EdgeInsets.only(right: 4.w),
-      child: FaIcon(FontAwesomeIcons.briefcase, color: ColorConfig.background, size: 16.w),
+      child: FaIcon(FontAwesomeIcons.graduationCap, color: ColorConfig.background, size: 16.w),
     );
   }
 
   Widget _buildTitle(BuildContext context) {
     return Text(
-      S.of(context).lastestExperiences,
+      S.of(context).education,
       style: TextStyleConfig.title,
     );
   }
@@ -95,13 +95,13 @@ class _LastestExperiencesState extends State<LastestExperiences> {
         return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            ..._store.experiences.map(
+            ..._store.educations.map(
               (experience) => _buildExperience(
                 initialDate: experience.initialDate,
                 finalDate: experience.finalDate,
-                jobTitle: experience.jobTitle,
-                company: experience.company,
-                description: experience.description,
+                university: experience.university,
+                location: experience.location,
+                course: experience.course,
               ),
             ),
           ],
@@ -110,7 +110,7 @@ class _LastestExperiencesState extends State<LastestExperiences> {
     );
   }
 
-  Widget _buildExperience({required String initialDate, required String finalDate, required String jobTitle, required String company, required String description}) {
+  Widget _buildExperience({required String initialDate, required String finalDate, required String university, required String location, required String course}) {
     return Transform.translate(
       offset: Offset(-15.w, 0),
       child: Padding(
@@ -125,9 +125,9 @@ class _LastestExperiencesState extends State<LastestExperiences> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  _buildJobTitle(jobTitle),
-                  _buildCompany(company),
-                  _buildDescription(description),
+                  _builduniversity(university),
+                  _buildlocation(location),
+                  _buildcourse(course),
                 ],
               ),
             ),
@@ -150,21 +150,21 @@ class _LastestExperiencesState extends State<LastestExperiences> {
     );
   }
 
-  Widget _buildJobTitle(String jobTitle) {
-    return Text(jobTitle, style: TextStyleConfig.infoTitle);
+  Widget _builduniversity(String university) {
+    return Text(university, style: TextStyleConfig.infoTitle);
   }
 
-  Widget _buildCompany(String company) {
+  Widget _buildlocation(String location) {
     return Padding(
       padding: EdgeInsets.only(bottom: 10.h),
-      child: Text(company, style: TextStyleConfig.infoBody.copyWith(fontWeight: FontWeight.w500)),
+      child: Text(location, style: TextStyleConfig.infoBody.copyWith(fontWeight: FontWeight.w500)),
     );
   }
 
-  Widget _buildDescription(String description) {
+  Widget _buildcourse(String course) {
     return Text(
-      description,
-      style: TextStyleConfig.infoBody.copyWith(fontSize: 10.sp),
+      course,
+      style: TextStyleConfig.infoBody,
       textAlign: TextAlign.justify,
     );
   }

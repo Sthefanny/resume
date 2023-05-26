@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import 'education_widget.dart';
 import 'languages_widget.dart';
 import 'lastest_experiences_widget.dart';
 import 'personal_info_widget.dart';
@@ -14,25 +15,30 @@ class ResumeWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Container(
-        padding: EdgeInsets.symmetric(vertical: 20.sp),
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(10),
+      child: ConstrainedBox(
+        constraints: BoxConstraints(
+          minWidth: 510.w,
+          maxWidth: 900.w,
         ),
-        child: SizedBox(
-          width: 1100.sp,
-          height: 1324.sp,
-          child: SingleChildScrollView(
-            child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 50.sp),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  _buildLeft(),
-                  _buildRight(),
-                ],
+        child: Container(
+          padding: EdgeInsets.symmetric(vertical: 20.h),
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(10),
+          ),
+          child: SizedBox(
+            width: 540.w,
+            child: SingleChildScrollView(
+              child: Padding(
+                padding: EdgeInsets.symmetric(horizontal: 20.w),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Expanded(child: _buildLeft()),
+                    _buildRight(),
+                  ],
+                ),
               ),
             ),
           ),
@@ -42,32 +48,35 @@ class ResumeWidget extends StatelessWidget {
   }
 
   Widget _buildLeft() {
-    return SizedBox(
-      width: 620.sp,
-      child: Column(
-        children: [
-          TitleWidget(),
-          Padding(
-            padding: EdgeInsets.only(left: 0.055.sw, top: 10.sp),
-            child: Column(
-              children: [
-                SummaryWidget(),
-                LastestExperiences(),
-              ],
-            ),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        TitleWidget(),
+        Padding(
+          padding: EdgeInsets.only(left: 10.w, right: 20.w, top: 10.h),
+          child: Column(
+            children: [
+              SummaryWidget(),
+              LastestExperiences(),
+              EducationWidget(),
+            ],
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 
   Widget _buildRight() {
-    return SizedBox(
-      width: 340.sp,
+    return ConstrainedBox(
+      constraints: BoxConstraints(
+        minWidth: 100.w,
+        maxWidth: 170.w,
+      ),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           PersonalInfoWidget(),
-          Container(margin: EdgeInsets.symmetric(vertical: 10.sp), child: SkillsWidget()),
+          SkillsWidget(),
           LanguagesWidget(),
         ],
       ),

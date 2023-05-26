@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:flutter_modular/flutter_modular.dart';
 
-import '../../app_store.dart';
 import '../../common/configs/color_config.dart';
-import 'home_store.dart';
 import 'widgets/language_buttons.dart';
 import 'widgets/resume_wiget.dart';
 
@@ -17,16 +14,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  late final HomeStore store;
-  late final AppStore appStore;
-
-  @override
-  void initState() {
-    super.initState();
-    store = Modular.get<HomeStore>();
-    appStore = Modular.get<AppStore>();
-  }
-
   @override
   Widget build(BuildContext context) {
     return Observer(
@@ -36,7 +23,7 @@ class _HomePageState extends State<HomePage> {
           body: Stack(
             children: [
               ResumeWidget(),
-              LanguageButtons(appStore: appStore),
+              LanguageButtons(),
             ],
           ),
         );

@@ -1,7 +1,7 @@
 {
   "jobTitle": "Desenvolvedora Flutter Senior",
   "summary": "Resumo",
-  "summaryDescription": "Fui Co-Organizadora na maior comunidade de Flutter da América Latina: Flutterando\nCriei um grupo de Flutter feminino no Telegram\nFiz algumas live streams ensinando Flutter na Twitch.tv\nEu fui uma estudante na Apple Developer Academy 2021/2022",
+  "summaryDescription": "- Fui Co-Organizadora na maior comunidade de Flutter da América Latina: Flutterando\n- Criei um grupo de Flutter feminino no Telegram\n- Fiz algumas live streams ensinando Flutter na Twitch.tv\n- Eu fui uma estudante na Apple Developer Academy 2021/2022",
   "lastestExperiences": "Últimas Experiências",
   "personalInfo": "Info Pessoal",
   "addressTitle": "Address",
@@ -17,5 +17,6 @@
   "skills": "Habilidades",
   "languages": "Idiomas",
   "portuguese": "Português",
-  "english": "Inglês"
+  "english": "Inglês",
+  "education": "Educação"
 }

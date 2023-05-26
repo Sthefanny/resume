@@ -8,7 +8,7 @@ targets:
           #
           # The default value for each is listed.
           explicit_to_json: true
-          field_rename: snake
+          field_rename: none
 
       mobx_codegen|mobx_generator:
         generate_for:

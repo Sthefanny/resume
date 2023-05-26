@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-import '../../../../generated/l10n.dart';
+import '../../../../l10n/generated/l10n.dart';
 import '../../../common/configs/color_config.dart';
 import '../../../common/configs/text_style_config.dart';
 
@@ -17,14 +17,9 @@ class SummaryWidget extends StatelessWidget {
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Row(
-              children: [
-                _buildIcon(),
-                _buildTitle(context),
-              ],
-            ),
+            _buildIconAndTitle(context),
             Container(
-              margin: EdgeInsets.only(top: 15.sp, bottom: 20.sp),
+              margin: EdgeInsets.only(top: 15.h, bottom: 20.h),
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -41,20 +36,32 @@ class SummaryWidget extends StatelessWidget {
 
   Widget _buildLine() {
     return Positioned(
-      left: 15.sp,
-      top: 30.sp,
+      left: 28.w,
+      top: 17.h,
       bottom: 0,
       child: Container(
-        width: 2.sp,
+        width: 1.w,
         color: ColorConfig.grey,
+      ),
+    );
+  }
+
+  Widget _buildIconAndTitle(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.only(left: 20.w),
+      child: Row(
+        children: [
+          _buildIcon(),
+          _buildTitle(context),
+        ],
       ),
     );
   }
 
   Widget _buildIcon() {
     return Padding(
-      padding: EdgeInsets.only(right: 8.sp),
-      child: FaIcon(FontAwesomeIcons.bullseye, color: ColorConfig.background, size: 32.sp),
+      padding: EdgeInsets.only(right: 4.w),
+      child: FaIcon(FontAwesomeIcons.bullseye, color: ColorConfig.background, size: 16.w),
     );
   }
 
@@ -67,19 +74,19 @@ class SummaryWidget extends StatelessWidget {
 
   Widget _buildCircle() {
     return Padding(
-      padding: EdgeInsets.only(left: 10.sp, top: 5.sp),
-      child: FaIcon(FontAwesomeIcons.solidCircle, color: ColorConfig.background, size: 13.sp),
+      padding: EdgeInsets.only(left: 25.5.w, top: 3.h),
+      child: FaIcon(FontAwesomeIcons.solidCircle, color: ColorConfig.background, size: 6.w),
     );
   }
 
   Widget _buildDescription(BuildContext context) {
     return Expanded(
       child: Container(
-        margin: EdgeInsets.only(left: 20.sp),
+        margin: EdgeInsets.only(left: 10.w),
         child: Text(
           S.of(context).summaryDescription,
-          style: TextStyleConfig.body,
-          textAlign: TextAlign.justify,
+          style: TextStyleConfig.infoBody,
+          textAlign: TextAlign.left,
         ),
       ),
     );
