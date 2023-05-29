@@ -103,3 +103,4 @@ coverage/
 
 
 .env*
+.op/plugins/gh.json
