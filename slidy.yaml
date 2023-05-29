@@ -61,3 +61,10 @@ scripts:
     steps:
       - name: "Test with coverage"
         run: fvm flutter test --coverage
+
+  # Steped command (slidy run release)
+  release:
+    description: "release web"
+    steps:
+      - name: "release web"
+        run: fvm flutter build web --release
