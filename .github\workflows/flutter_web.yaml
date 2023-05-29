@@ -8,13 +8,15 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      token: ${{secrets.token}}
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v1
+        uses: actions/checkout@v3
 
       - name: Setup Flutter
-        uses: subosito/flutter-action@v1
+        uses: subosito/flutter-action@v2
         with:
           channel: "3.10.2"
 
@@ -27,14 +29,20 @@ jobs:
       - name: Build Web
         run: flutter build web --release
 
+      - name: Configure GH Pages
+        uses: bluefireteam/flutter-gh-pages@v7
+        with:
+          workingDir: build/web
+          baseHref: /resume/
+
       - name: Deploy
         run: |
           cd build/web
           git init
           git config --global user.email sthefannygonzaga@gmail.com
-          git config --global user.name Sthefanny
+          git config --global user.name sthefanny
           git status
-          git remote add origin https://${{secrets.token}}@github.com/Sthefanny/sthefanny.github.io.git
+          git remote add origin https://${{secrets.token}}@github.com/Sthefanny/sthefanny.github.io.git/resume
           git checkout -b gh-pages
           git add --all
           git commit -m "update"
