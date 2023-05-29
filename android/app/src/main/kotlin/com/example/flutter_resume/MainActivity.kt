@@ -1,4 +1,4 @@
-package com.example.resume
+package com.example.flutter_resume
 
 import io.flutter.embedding.android.FlutterActivity
 

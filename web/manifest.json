@@ -1,6 +1,6 @@
 {
-    "name": "resume",
-    "short_name": "resume",
+    "name": "flutter_resume",
+    "short_name": "flutter_resume",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

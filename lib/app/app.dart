@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../generated/l10n.dart';
+import '../l10n/generated/l10n.dart';
 import 'app_store.dart';
 
 class App extends StatefulWidget {
@@ -29,21 +28,16 @@ class _AppState extends State<App> {
       builder: (_) {
         print('locale = ${store.locale}'); //Só ta funcionando com esse print
         return ScreenUtilInit(
-          designSize: Size(1024, 768),
+          designSize: Size(1280, 720),
           minTextAdapt: true,
           builder: (_, __) => MaterialApp.router(
-            title: 'Sthefanny\'s Curriculum',
+            title: 'Sthefanny\'s CV',
             routeInformationParser: Modular.routeInformationParser,
             routerDelegate: Modular.routerDelegate,
             debugShowCheckedModeBanner: false,
             debugShowMaterialGrid: false,
-            localizationsDelegates: [
-              S.delegate,
-              GlobalMaterialLocalizations.delegate,
-              GlobalWidgetsLocalizations.delegate,
-              GlobalCupertinoLocalizations.delegate,
-            ],
-            supportedLocales: S.delegate.supportedLocales,
+            localizationsDelegates: S.localizationsDelegates,
+            supportedLocales: S.supportedLocales,
             localeResolutionCallback: (locale, supportedLocales) {
               if (supportedLocales.contains(store.locale)) {
                 return store.locale;
